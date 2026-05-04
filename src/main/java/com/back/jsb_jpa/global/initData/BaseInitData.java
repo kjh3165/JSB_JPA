@@ -15,9 +15,15 @@ public class BaseInitData {
     @Bean
     ApplicationRunner baseInitDataApplicationRunner() {
         return args -> {
+            if (postRepository.count() > 0) return;
+
             Post post = new Post();
             post.setTitle("제목 1");
             postRepository.save(post);
+
+            Post post2 = new Post();
+            post2.setTitle("제목 2");
+            postRepository.save(post2);
         };
     }
 }
