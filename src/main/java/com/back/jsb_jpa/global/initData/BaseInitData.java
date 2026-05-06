@@ -2,7 +2,6 @@ package com.back.jsb_jpa.global.initData;
 
 import com.back.jsb_jpa.domain.post.post.entity.Post;
 import com.back.jsb_jpa.domain.post.post.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +10,12 @@ import java.util.Optional;
 
 @Configuration
 public class BaseInitData {
-    @Autowired
+
     private PostService postService;
+
+    public BaseInitData (PostService postService) {
+        this.postService = postService;
+    }
 
     @Bean
     ApplicationRunner baseInitDataApplicationRunner() {
