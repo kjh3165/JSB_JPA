@@ -26,6 +26,12 @@ public class PostService {
         return postRepository.count();
     }
 
+    public Post write(String title, String content) {
+        Post post = new Post(title, content);
+
+        return postRepository.save(post);
+    }
+
     public void modify(Post post, String title, String content) {
         post.setTitle(title);
         post.setContent(content);
